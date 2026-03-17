@@ -35,9 +35,10 @@
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="icon" type="image/png" sizes="192x192" href="logo.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Fonts - Preconnect for performance -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
 
   <style>
     :root {
@@ -75,9 +76,11 @@
       background: var(--bg);
       overflow-x: hidden;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Background with parallax effect */
+    /* Optimized Background - No blur effects */
     .bg {
       position: fixed;
       inset: 0;
@@ -85,8 +88,8 @@
       background: 
         radial-gradient(1200px 800px at 60% 35%, rgba(255,168,50,.18), transparent),
         radial-gradient(1000px 700px at 30% 40%, rgba(255,210,120,.12), transparent),
-        url("bg-toast.png") center 20% / cover no-repeat fixed;
-      filter: saturate(1) contrast(1);
+        url("bg-toast.png") center 20% / cover no-repeat;
+      will-change: transform;
     }
 
     .bg::after {
@@ -110,13 +113,12 @@
       padding: 0 20px;
     }
 
-    /* Header with glassmorphism */
+    /* Header - No backdrop-filter for performance */
     .top {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(0,0,0,.65);
+      background: rgba(0,0,0,.85);
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
@@ -128,14 +130,13 @@
       gap: 16px;
     }
 
-    /* Brand/Logo - Clickable for mobile menu */
+    /* Brand/Logo - Separate menu button */
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 950;
       letter-spacing: .3px;
-      cursor: pointer;
       position: relative;
       z-index: 60;
     }
@@ -151,22 +152,10 @@
       box-shadow: 0 18px 50px rgba(0,0,0,.45);
       overflow: hidden;
       transition: var(--transition);
-      position: relative;
-    }
-
-    .brand .icon::after {
-      content: '\f0c9';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      opacity: 0;
-      font-size: 20px;
-      color: var(--goldA);
-      transition: var(--transition);
     }
 
     .brand .icon:hover {
-      transform: scale(1.05) rotate(5deg);
+      transform: scale(1.05);
       box-shadow: 0 20px 60px rgba(255,168,50,.3);
     }
 
@@ -174,7 +163,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: var(--transition);
+      display: block;
     }
 
     .brand .title {
@@ -187,12 +176,26 @@
       font-weight: 850;
     }
 
-    /* Mobile Menu Toggle */
-    .menu-toggle {
+    /* Mobile Menu Button - Separate from logo */
+    .menu-btn {
       display: none;
-      position: absolute;
-      opacity: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,196,92,.15);
+      border: 1px solid rgba(255,196,92,.3);
+      color: var(--goldA);
+      font-size: 20px;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 61;
+    }
+
+    .menu-btn:hover {
+      background: rgba(255,196,92,.25);
+      transform: scale(1.05);
     }
 
     /* Desktop Navigation */
@@ -211,90 +214,58 @@
       overflow: hidden;
     }
 
-    .navlinks a::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,196,92,.1), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.5s;
-    }
-
-    .navlinks a:hover::before {
-      transform: translateX(100%);
-    }
-
     .navlinks a:hover {
       color: #fff;
       background: rgba(255,255,255,.06);
-      transform: translateY(-2px);
     }
 
-    /* Mobile Navigation Overlay */
+    /* Mobile Navigation - Slide from top, not full screen */
     .mobile-nav {
       display: none;
-      position: fixed;
-      top: 0;
+      position: absolute;
+      top: 76px;
       left: 0;
       right: 0;
-      bottom: 0;
-      background: rgba(7,6,10,.98);
-      backdrop-filter: blur(20px);
-      z-index: 55;
-      padding: 100px 20px 20px;
+      background: rgba(7,6,10,.95);
+      border-bottom: 1px solid rgba(255,196,92,.2);
+      z-index: 49;
+      padding: 20px;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 20px;
+      gap: 12px;
       opacity: 0;
       visibility: hidden;
+      transform: translateY(-20px);
       transition: all 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
     }
 
     .mobile-nav.active {
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
+      max-height: 500px;
     }
 
     .mobile-nav a {
-      font-size: 24px;
-      font-weight: 950;
-      padding: 15px 30px;
-      border-radius: 16px;
+      font-size: 18px;
+      font-weight: 850;
+      padding: 14px 20px;
+      border-radius: 12px;
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.1);
       width: 100%;
-      max-width: 300px;
-      text-align: center;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       transition: var(--transition);
     }
 
     .mobile-nav a:hover {
       background: rgba(255,196,92,.1);
       border-color: rgba(255,196,92,.3);
-      transform: translateX(10px);
-    }
-
-    /* Close button for mobile menu */
-    .mobile-nav .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,.1);
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 24px;
-      transition: var(--transition);
-    }
-
-    .mobile-nav .close-btn:hover {
-      background: rgba(255,255,255,.2);
-      transform: rotate(90deg);
+      padding-left: 30px;
     }
 
     /* Buttons */
@@ -324,52 +295,15 @@
       white-space: nowrap;
     }
 
-    .btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s;
-    }
-
-    .btn:hover::before {
-      transform: translateX(100%);
-    }
-
     .btn:hover {
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(-2px);
       background: rgba(255,255,255,.1);
-      box-shadow: 0 20px 60px rgba(0,0,0,.4);
-    }
-
-    .btn:active {
-      transform: translateY(0) scale(0.98);
     }
 
     .btn.gold {
       border: 1px solid rgba(255,196,92,.45);
       background: linear-gradient(180deg, var(--goldA), var(--goldB), var(--goldC));
       color: #171006;
-      box-shadow: 
-        0 18px 70px rgba(255,168,50,.18),
-        inset 0 1px 0 rgba(255,255,255,.35);
-    }
-
-    .btn.gold::after {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 16px;
-      background: radial-gradient(500px 120px at 50% 0%, rgba(255,255,255,.25), transparent 65%);
-      pointer-events: none;
-      opacity: .65;
-    }
-
-    .btn.gold:hover {
-      box-shadow: 
-        0 25px 80px rgba(255,168,50,.3),
-        inset 0 1px 0 rgba(255,255,255,.4);
     }
 
     .btn.outlineGold {
@@ -377,12 +311,11 @@
       background: rgba(0,0,0,.25);
     }
 
-    /* Ticker */
+    /* Ticker - Optimized animation */
     .ticker {
       border-top: 1px solid rgba(255,196,92,.14);
       border-bottom: 1px solid rgba(255,196,92,.14);
       background: rgba(0,0,0,.55);
-      box-shadow: inset 0 0 0 1px rgba(255,196,92,.06);
     }
 
     .tickerInner {
@@ -400,6 +333,7 @@
       display: inline-block;
       padding-left: 100%;
       animation: marq 25s linear infinite;
+      will-change: transform;
     }
 
     @keyframes marq {
@@ -423,7 +357,6 @@
       color: rgba(255,255,255,.82);
       font-weight: 950;
       width: fit-content;
-      animation: fadeInUp 0.6s ease;
     }
 
     .chip .tick {
@@ -436,38 +369,19 @@
       place-items: center;
       color: #6bffb0;
       font-size: 12px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h1 {
       margin: 24px 0 12px;
-      font-size: clamp(36px, 5.2vw, 76px);
+      font-size: clamp(32px, 5.2vw, 76px);
       line-height: 1.02;
       letter-spacing: -.8px;
-      animation: fadeInUp 0.6s ease 0.1s both;
     }
 
     .line2 {
-      font-size: clamp(20px, 2.8vw, 40px);
+      font-size: clamp(18px, 2.8vw, 40px);
       font-weight: 950;
       margin-top: 8px;
-      animation: fadeInUp 0.6s ease 0.2s both;
     }
 
     .goldText {
@@ -475,7 +389,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      position: relative;
     }
 
     .lead {
@@ -485,7 +398,6 @@
       font-weight: 750;
       font-size: 16px;
       line-height: 1.6;
-      animation: fadeInUp 0.6s ease 0.3s both;
     }
 
     .heroBtns {
@@ -493,19 +405,16 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 24px;
-      animation: fadeInUp 0.6s ease 0.4s both;
     }
 
-    /* Glass Panels */
+    /* Glass Panels - No backdrop-filter */
     .glass {
       margin-top: 24px;
       border-radius: var(--r2);
-      background: var(--glass);
+      background: rgba(0,0,0,.7);
       border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
       overflow: hidden;
-      backdrop-filter: blur(10px);
-      animation: fadeInUp 0.6s ease 0.5s both;
     }
 
     .glassInner {
@@ -528,15 +437,11 @@
       justify-content: space-between;
       padding: 16px;
       border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.10);
-      transition: var(--transition);
-      flex-wrap: wrap;
-    }
-
-    .contractRow:hover {
-      border-color: rgba(255,196,92,.3);
       background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .mono {
@@ -582,7 +487,6 @@
       transform: translateY(-4px);
       border-color: rgba(255,196,92,.25);
       background: rgba(255,255,255,.06);
-      box-shadow: 0 20px 40px rgba(0,0,0,.3);
     }
 
     .card h3 {
@@ -611,21 +515,11 @@
       overflow: hidden;
     }
 
-    .burning-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at bottom, rgba(255,69,0,0.1), transparent 70%);
-      pointer-events: none;
-    }
-
     .burning-section h2 {
       color: #ff9900;
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 24px;
       text-transform: uppercase;
-      position: relative;
-      z-index: 1;
     }
 
     .fireplace-effect {
@@ -633,13 +527,7 @@
       overflow: hidden;
       background: radial-gradient(circle at bottom, #4a1500 0%, #1a0f00 70%) !important;
       border: 2px solid #ff4500 !important;
-      box-shadow: inset 0 0 40px #ff4500, 0 0 30px rgba(255,69,0,0.3);
-      animation: flicker 3s infinite alternate;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.95; }
+      box-shadow: inset 0 0 40px #ff4500;
     }
 
     .fireplace-effect::after {
@@ -653,6 +541,7 @@
       opacity: 0.6;
       filter: blur(15px);
       animation: flameDance 1.5s infinite alternate;
+      will-change: transform, opacity;
     }
 
     @keyframes flameDance {
@@ -731,7 +620,6 @@
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.35);
-      box-shadow: 0 20px 60px rgba(0,0,0,.4);
     }
 
     .chartWrap iframe {
@@ -763,28 +651,12 @@
       color: white;
       font-size: 22px;
       border: 1px solid rgba(255,255,255,.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-icon::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255,255,255,.1));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .social-icon:hover::before {
-      opacity: 1;
     }
 
     .social-icon:hover {
-      transform: translateY(-4px) scale(1.1);
+      transform: translateY(-4px);
       background: rgba(255, 255, 255, 0.15);
       border-color: rgba(255,196,92,.3);
-      box-shadow: 0 10px 30px rgba(0,0,0,.3);
     }
 
     .fa-telegram-plane { color: #0088cc; }
@@ -819,25 +691,17 @@
         display: none; 
       }
       
-      .brand {
-        cursor: pointer;
-      }
-      
-      .brand .icon::after {
-        opacity: 1;
-        background: rgba(0,0,0,.6);
+      .menu-btn {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 14px;
-      }
-      
-      .brand .icon img {
-        opacity: 0.3;
+        order: -1;
       }
       
       .mobile-nav {
         display: flex;
+      }
+      
+      .brand {
+        margin: 0 auto;
       }
       
       .grid2 { 
@@ -849,18 +713,19 @@
       }
       
       .chartWrap iframe { 
-        height: 500px; 
+        height: 400px; 
       }
       
       .contractRow {
         flex-direction: column;
         align-items: stretch;
+        gap: 16px;
       }
       
       .mono {
         max-width: 100%;
         text-align: center;
-        margin-bottom: 12px;
+        font-size: 12px;
       }
       
       .burning-section { 
@@ -868,22 +733,31 @@
       }
       
       .burning-section h2 { 
-        font-size: 1.5rem; 
-      }
-      
-      .actions .btn {
-        padding: 0 14px;
-        font-size: 13px;
+        font-size: 1.3rem; 
       }
     }
 
     @media (max-width: 480px) {
+      .nav {
+        height: 70px;
+        gap: 8px;
+      }
+      
+      .brand .icon {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .brand .title div:first-child {
+        font-size: 14px;
+      }
+      
       h1 { 
-        font-size: 32px; 
+        font-size: 28px; 
       }
       
       .line2 { 
-        font-size: 18px; 
+        font-size: 16px; 
       }
       
       .glassInner { 
@@ -891,97 +765,44 @@
       }
       
       .btn { 
-        padding: 0 16px; 
-        height: 44px; 
-        font-size: 14px; 
-        width: 100%;
-        justify-content: center;
+        padding: 0 14px; 
+        height: 42px; 
+        font-size: 13px; 
       }
       
       .heroBtns {
         flex-direction: column;
       }
       
-      .miniBtns .btn {
-        flex: 1;
-        min-width: calc(50% - 5px);
-      }
-      
-      .mobile-nav a {
-        font-size: 20px;
-        padding: 12px 24px;
+      .heroBtns .btn {
+        width: 100%;
       }
     }
 
-    /* Utility Classes */
-    .text-center { text-align: center; }
-    .mt-20 { margin-top: 20px; }
-    .mb-20 { margin-bottom: 20px; }
-    .hidden { display: none; }
-
-    /* Loading Animation */
-    .skeleton {
-      background: linear-gradient(90deg, rgba(255,255,255,.05) 25%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.05) 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Overlay when menu is open */
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.5);
-      z-index: 54;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .overlay.active {
-      display: block;
-      opacity: 1;
+    /* Reduced motion for performance */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="bg" aria-hidden="true"></div>
-  
-  <!-- Mobile Menu Overlay -->
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-  <!-- Mobile Navigation -->
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">
-      <i class="fas fa-times"></i>
-    </div>
-    <a href="#chart" onclick="toggleMenu()">
-      <i class="fas fa-chart-area" aria-hidden="true"></i> Live Chart
-    </a>
-    <a href="#tokenomics" onclick="toggleMenu()">
-      <i class="fas fa-coins" aria-hidden="true"></i> Tokenomics
-    </a>
-    <a href="#how" onclick="toggleMenu()">
-      <i class="fas fa-shopping-cart" aria-hidden="true"></i> How to Buy
-    </a>
-    <a href="#faq" onclick="toggleMenu()">
-      <i class="fas fa-question-circle" aria-hidden="true"></i> FAQ
-    </a>
-    <a href="https://drive.google.com/file/d/1RKybDpHnIAHZpmkp4OFj1PBHKE_LvtFF/view?usp=drive_link" target="_blank" rel="noopener noreferrer" onclick="toggleMenu()">
-      <i class="fas fa-file-alt" aria-hidden="true"></i> Whitepaper
-    </a>
-  </nav>
 
   <header class="top">
     <div class="container">
       <div class="nav">
-        <!-- Logo tıklanabilir mobil menü -->
-        <div class="brand" onclick="toggleMenu()" role="button" aria-label="Open menu" aria-expanded="false" id="menuButton">
+        <!-- Mobile Menu Button - Separate from logo -->
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" id="menuBtn">
+          <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+
+        <!-- Logo - Center on mobile -->
+        <a href="/" class="brand">
           <div class="icon">
             <img src="logo.png" alt="Betsminerx Logo" width="50" height="50" loading="eager"/>
           </div>
@@ -992,7 +813,7 @@
             </div>
             <div class="sub">BTX • BNB (BEP-20)</div>
           </div>
-        </div>
+        </a>
 
         <!-- Desktop Navigation -->
         <nav class="navlinks" aria-label="Main Navigation">
@@ -1008,6 +829,25 @@
           <a class="btn gold" href="https://pancakeswap.finance/swap?outputCurrency=0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener noreferrer">Buy BTX</a>
         </div>
       </div>
+      
+      <!-- Mobile Navigation - Dropdown under header -->
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+        <a href="#chart" onclick="toggleMenu()">
+          <i class="fas fa-chart-area" aria-hidden="true"></i> Live Chart
+        </a>
+        <a href="#tokenomics" onclick="toggleMenu()">
+          <i class="fas fa-coins" aria-hidden="true"></i> Tokenomics
+        </a>
+        <a href="#how" onclick="toggleMenu()">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i> How to Buy
+        </a>
+        <a href="#faq" onclick="toggleMenu()">
+          <i class="fas fa-question-circle" aria-hidden="true"></i> FAQ
+        </a>
+        <a href="https://drive.google.com/file/d/1RKybDpHnIAHZpmkp4OFj1PBHKE_LvtFF/view?usp=drive_link" target="_blank" rel="noopener noreferrer" onclick="toggleMenu()">
+          <i class="fas fa-file-alt" aria-hidden="true"></i> Whitepaper
+        </a>
+      </nav>
     </div>
 
     <div class="ticker" role="marquee" aria-label="Announcement ticker">
@@ -1131,7 +971,7 @@
               aria-label="Live price chart from DexScreener">
             </iframe>
           </div>
-          <p class="tiny" style="margin-top:12px;color:rgba(255,255,255,.55);font-size:12px;">
+          <p style="margin-top:12px;color:rgba(255,255,255,.55);font-size:12px;">
             <i class="fas fa-info-circle" aria-hidden="true"></i> If the chart is not visible yet, DexScreener may still be indexing the token.
           </p>
         </div>
@@ -1268,33 +1108,30 @@
   <footer>
     <div class="footer-content">
       <p>
-        <strong>Risk Disclosure:</strong> Engaging with crypto assets, decentralized protocols, and blockchain-based infrastructures involves a high degree of inherent risk. The crypto asset market is characterized by extreme price volatility, rapid technological shifts, and evolving regulatory landscapes. By accessing this platform and utilizing its technological components, you expressly acknowledge that all interactions are performed at your own discretion and based on your own independent evaluation.​This interface serves exclusively as a technological gateway and does not provide financial, legal, or investment advice. Crypto assets are complex digital instruments, and users are expected to conduct their own thorough research and exercise personal due diligence before participating in any decentralized ecosystem. You are solely responsible for the security of your digital interactions and for assessing the technical risks associated with blockchain-integrated systems. This platform shall not be held liable for any decisions made based on the information provided herein.
+        <strong>Risk Disclosure:</strong> Engaging with crypto assets, decentralized protocols, and blockchain-based infrastructures involves a high degree of inherent risk. The crypto asset market is characterized by extreme price volatility, rapid technological shifts, and evolving regulatory landscapes. By accessing this platform and utilizing its technological components, you expressly acknowledge that all interactions are performed at your own discretion and based on your own independent evaluation. This interface serves exclusively as a technological gateway and does not provide financial, legal, or investment advice. Crypto assets are complex digital instruments, and users are expected to conduct their own thorough research and exercise personal due diligence before participating in any decentralized ecosystem. You are solely responsible for the security of your digital interactions and for assessing the technical risks associated with blockchain-integrated systems. This platform shall not be held liable for any decisions made based on the information provided herein.
       </p>
       <p>&copy; 2026 Betsminerx. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/config.js" defer></script>
-  <script src="/app.js" defer></script>
   <script>
     // Mobile Menu Toggle
     function toggleMenu() {
       const mobileNav = document.getElementById('mobileNav');
-      const overlay = document.getElementById('overlay');
-      const menuButton = document.getElementById('menuButton');
+      const menuBtn = document.getElementById('menuBtn');
+      const menuIcon = document.getElementById('menuIcon');
       const isOpen = mobileNav.classList.contains('active');
       
       if (isOpen) {
         mobileNav.classList.remove('active');
-        overlay.classList.remove('active');
-        menuButton.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
       } else {
         mobileNav.classList.add('active');
-        overlay.classList.add('active');
-        menuButton.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
       }
     }
 
@@ -1359,29 +1196,7 @@
       });
     });
 
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.card').forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-      observer.observe(card);
-    });
-
-    // Close menu on resize if open
+    // Close menu on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 980) {
         const mobileNav = document.getElementById('mobileNav');
