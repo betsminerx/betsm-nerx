@@ -1,457 +1,989 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>BETSMINERX (BTX) • BNB</title>
-  <style>
-    /* burneffect */
-    .fireplace-effect {
-        position: relative;
-        overflow: hidden;
-        background: radial-gradient(circle at bottom, #4a1500 0%, #1a0f00 70%) !important;
-        border: 2px solid #ff4500 !important;
-        box-shadow: inset 0 0 40px #ff4500;
-    }
-
-    .fireplace-effect::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to top, #ff4500, #ff9900, transparent);
-        opacity: 0.6;
-        filter: blur(15px);
-        animation: flameDance 1.5s infinite alternate;
-    }
-
-    @keyframes flameDance {
-        0% { transform: translateY(10px) scaleX(1); opacity: 0.4; }
-        100% { transform: translateY(-5px) scaleX(1.1); opacity: 0.8; }
-    }
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>BETSMINERX (BTX) • BNB Chain | Next-Gen DeFi Ecosystem</title>
+  
+  <!-- SEO Meta -->
   <meta name="description" content="BETSMINERX (BTX) on BNB Chain. A robust, community-driven ecosystem built on scalable infrastructure, transparency, and sustainable innovation."/>
-    <!-- OpenGraph / Twitter -->
+  <meta name="keywords" content="BTX, Betsminerx, BNB Chain, DeFi, Cryptocurrency, Token, PancakeSwap"/>
+  <meta name="author" content="Betsminerx Team"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- OpenGraph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BETSMINERX ($BTX)">
+  <meta property="og:title" content="BETSMINERX ($BTX) - Next Generation DeFi">
   <meta property="og:description" content="BETSMINERX (BTX) on BNB Chain. A robust, community-driven ecosystem built on scalable infrastructure, transparency, and sustainable innovation.">
   <meta property="og:url" content="https://betsminerx.com/">
-  <meta property="og:image" content="logo.png">
+  <meta property="og:image" content="https://betsminerx.com/logo.png">
   <meta property="og:image:secure_url" content="https://betsminerx.com/logo.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="256">
   <meta property="og:image:height" content="256">
+  <meta property="og:site_name" content="Betsminerx">
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BETSMINERX ($BTX)">
   <meta name="twitter:description" content="BETSMINERX (BTX) on BNB Chain. A robust, community-driven ecosystem built on scalable infrastructure, transparency, and sustainable innovation.">
-  <meta name="twitter:image" content="logo.png">
+  <meta name="twitter:image" content="https://betsminerx.com/logo.png">
   <meta name="theme-color" content="#07060a"/>
 
   <!-- Favicons -->
-<link rel="icon" href="logo.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<style>
-  /*  */
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease !important;
-    margin: 5px;
-    color: white;
-    font-size: 22px;
-}
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logo.png">
 
-/* Hover Efekti */
-.social-icon:hover {
-    transform: scale(1.15) !important;
-    background: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* ) */
-.fa-telegram-plane { color: #0088cc; }
-.fa-tiktok { color: #ffffff; } /* Koyu temada beyaz daha iyi görünür */
-.fa-x-twitter { color: #ffffff; }
-.fa-instagram { color: #E1306C; }
-.fa-envelope { color: #D44638; }
-</style>
-
-
-<!-- Apple Touch Icons -->
-<link rel="apple-touch-icon" href="logo.png">
-<!-- Android -->
-<link rel="icon" type="image/png" sizes="192x192" href="logo.png">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
-    html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 148px;
-}
-    :root{
-      --bg:#07060a;
-      --glass:rgba(0,0,0,.56);
-      --glass2:rgba(255,255,255,.05);
-      --stroke:rgba(255,255,255,.12);
-      --goldA:#ffd27c;
-      --goldB:#ffb24a;
-      --goldC:#ff8f1f;
-      --pink:#ff5fb8;
-      --text:#f7f6fb;
-      --muted:rgba(255,255,255,.72);
-      --shadow:0 26px 90px rgba(0,0,0,.70);
-      --r:18px;
-      --r2:22px;
-      --max:1200px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background: var(--bg);
-      overflow-x:hidden;
+    :root {
+      --bg: #07060a;
+      --glass: rgba(0,0,0,.56);
+      --glass2: rgba(255,255,255,.05);
+      --stroke: rgba(255,255,255,.12);
+      --goldA: #ffd27c;
+      --goldB: #ffb24a;
+      --goldC: #ff8f1f;
+      --pink: #ff5fb8;
+      --text: #f7f6fb;
+      --muted: rgba(255,255,255,.72);
+      --shadow: 0 26px 90px rgba(0,0,0,.70);
+      --r: 18px;
+      --r2: 22px;
+      --max: 1200px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Background */
-    .bg{
-      position:fixed; inset:0; z-index:-3;
-      background:
-        radial-gradient(1200px 800px at 60% 35%, rgba(255,168,50,.18), transparent 0%),
-        radial-gradient(1000px 700px at 30% 40%, rgba(255,210,120,.12), transparent 0%),
-        url("bg-toast.png") center 20% / cover no-repeat;
-      filter:saturate(1) contrast(1);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .bg::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Background with parallax effect */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background: 
+        radial-gradient(1200px 800px at 60% 35%, rgba(255,168,50,.18), transparent),
+        radial-gradient(1000px 700px at 30% 40%, rgba(255,210,120,.12), transparent),
+        url("bg-toast.png") center 20% / cover no-repeat fixed;
+      filter: saturate(1) contrast(1);
+    }
+
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
         linear-gradient(90deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.62) 46%, rgba(0,0,0,.42) 100%),
         linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.64) 65%, rgba(0,0,0,.82) 100%);
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
 
-    /* Header */
-    .top{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(0,0,0,.52);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    .nav{
-      height:76px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+
+    /* Header with glassmorphism */
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(0,0,0,.65);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:950; letter-spacing:.3px;
-      min-width: 240px;
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
-    .brand .icon{
-      width:46px;height:46px;border-radius:14px;
-      display:grid;place-items:center;
+
+    /* Brand/Logo - Clickable for mobile menu */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 950;
+      letter-spacing: .3px;
+      cursor: pointer;
+      position: relative;
+      z-index: 60;
+    }
+
+    .brand .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
       background: linear-gradient(135deg, rgba(255,196,92,.35), rgba(255,154,31,.18));
-      border:1px solid rgba(255,196,92,.28);
+      border: 1px solid rgba(255,196,92,.28);
       box-shadow: 0 18px 50px rgba(0,0,0,.45);
-      overflow:hidden;
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
     }
-    .brand .icon img{width:100%;height:100%;object-fit:cover}
-    .brand .title{line-height:1.05}
-    .brand .sub{color:var(--muted);font-size:12px;font-weight:850}
 
-    .navlinks{
-      display:flex; gap:22px; align-items:center;
-      color:rgba(255,255,255,.78);
-      font-weight:850;
+    .brand .icon::after {
+      content: '\f0c9';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      opacity: 0;
+      font-size: 20px;
+      color: var(--goldA);
+      transition: var(--transition);
     }
-    .navlinks a{padding:10px 10px;border-radius:12px}
-    .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
 
-    /* Pro buttons */
-    .actions{display:flex;gap:12px;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      height:48px;
-      padding:0 18px;
-      border-radius:14px;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,.14);
+    .brand .icon:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 20px 60px rgba(255,168,50,.3);
+    }
+
+    .brand .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .brand .title {
+      line-height: 1.05;
+    }
+
+    .brand .sub {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* Desktop Navigation */
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      color: rgba(255,255,255,.78);
+      font-weight: 850;
+    }
+
+    .navlinks a {
+      padding: 10px 14px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navlinks a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,196,92,.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+
+    .navlinks a:hover::before {
+      transform: translateX(100%);
+    }
+
+    .navlinks a:hover {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Navigation Overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(7,6,10,.98);
+      backdrop-filter: blur(20px);
+      z-index: 55;
+      padding: 100px 20px 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav a {
+      font-size: 24px;
+      font-weight: 950;
+      padding: 15px 30px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(255,196,92,.1);
+      border-color: rgba(255,196,92,.3);
+      transform: translateX(10px);
+    }
+
+    /* Close button for mobile menu */
+    .mobile-nav .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.1);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      transition: var(--transition);
+    }
+
+    .mobile-nav .close-btn:hover {
+      background: rgba(255,255,255,.2);
+      transform: rotate(90deg);
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      font-weight: 950;
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       box-shadow: 0 14px 45px rgba(0,0,0,.35);
-      transition:.16s ease;
-      user-select:none;
-      position:relative;
+      transition: var(--transition);
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08)}
-    .btn:active{transform:translateY(0px) scale(.99)}
-    .btn.gold{
-      border:1px solid rgba(255,196,92,.45);
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: rgba(255,255,255,.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn.gold {
+      border: 1px solid rgba(255,196,92,.45);
       background: linear-gradient(180deg, var(--goldA), var(--goldB), var(--goldC));
-      color:#171006;
-      box-shadow:
+      color: #171006;
+      box-shadow: 
         0 18px 70px rgba(255,168,50,.18),
         inset 0 1px 0 rgba(255,255,255,.35);
     }
-    .btn.gold::after{
-      content:"";
-      position:absolute; inset:-2px;
-      border-radius:16px;
+
+    .btn.gold::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
       background: radial-gradient(500px 120px at 50% 0%, rgba(255,255,255,.25), transparent 65%);
-      pointer-events:none;
-      opacity:.65;
+      pointer-events: none;
+      opacity: .65;
     }
-    .btn.outlineGold{
-      border:1px solid rgba(255,196,92,.35);
+
+    .btn.gold:hover {
+      box-shadow: 
+        0 25px 80px rgba(255,168,50,.3),
+        inset 0 1px 0 rgba(255,255,255,.4);
+    }
+
+    .btn.outlineGold {
+      border: 1px solid rgba(255,196,92,.35);
       background: rgba(0,0,0,.25);
     }
 
     /* Ticker */
-    .ticker{
-      border-top:1px solid rgba(255,196,92,.14);
-      border-bottom:1px solid rgba(255,196,92,.14);
+    .ticker {
+      border-top: 1px solid rgba(255,196,92,.14);
+      border-bottom: 1px solid rgba(255,196,92,.14);
       background: rgba(0,0,0,.55);
       box-shadow: inset 0 0 0 1px rgba(255,196,92,.06);
     }
-    .tickerInner{
-      overflow:hidden;
-      white-space:nowrap;
-      padding:12px 0;
-      color:rgba(255,210,160,.92);
-      font-weight:950;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-      font-size:12px;
-    }
-    .tickerInner span{
-      display:inline-block;
-      padding-left:100%;
-      animation:marq 22s linear infinite;
-    }
-    @keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
-    /* Hero */
-    .hero{padding:34px 0 22px}
-    .chip{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
+    .tickerInner {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 12px 0;
+      color: rgba(255,210,160,.92);
+      font-weight: 950;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .tickerInner span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marq 25s linear infinite;
+    }
+
+    @keyframes marq {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 0 30px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
       background: rgba(0,0,0,.50);
-      border:1px solid rgba(255,255,255,.12);
-      color:rgba(255,255,255,.82);
-      font-weight:950;
-      width:fit-content;
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      font-weight: 950;
+      width: fit-content;
+      animation: fadeInUp 0.6s ease;
     }
-    .chip .tick{
-      width:18px;height:18px;border-radius:6px;
-      border:1px solid rgba(105,255,162,.35);
+
+    .chip .tick {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(105,255,162,.35);
       background: rgba(105,255,162,.12);
-      display:grid;place-items:center;
-      color:#6bffb0;
-      font-size:12px;
+      display: grid;
+      place-items: center;
+      color: #6bffb0;
+      font-size: 12px;
+      animation: pulse 2s infinite;
     }
-    h1{
-      margin:18px 0 10px;
-      font-size: clamp(44px, 5.2vw, 76px);
-      line-height:1.02;
-      letter-spacing:-.8px;
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
-    .line2{
-      font-size: clamp(22px, 2.8vw, 40px);
-      font-weight:950;
-      margin-top:8px;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .goldText{
+
+    h1 {
+      margin: 24px 0 12px;
+      font-size: clamp(36px, 5.2vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -.8px;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+
+    .line2 {
+      font-size: clamp(20px, 2.8vw, 40px);
+      font-weight: 950;
+      margin-top: 8px;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+
+    .goldText {
       background: linear-gradient(90deg, var(--goldA), var(--goldC), var(--pink));
-      -webkit-background-clip:text;background-clip:text;color:transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
     }
-    .lead{
-      margin-top:14px;
+
+    .lead {
+      margin-top: 20px;
       max-width: 64ch;
       color: rgba(255,255,255,.70);
-      font-weight:750;
-      font-size:16px;
-      line-height:1.55;
+      font-weight: 750;
+      font-size: 16px;
+      line-height: 1.6;
+      animation: fadeInUp 0.6s ease 0.3s both;
     }
-    .heroBtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
 
-    /* Glass panels */
-    .glass{
-      margin-top:18px;
-      border-radius:var(--r2);
+    .heroBtns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      animation: fadeInUp 0.6s ease 0.4s both;
+    }
+
+    /* Glass Panels */
+    .glass {
+      margin-top: 24px;
+      border-radius: var(--r2);
       background: var(--glass);
-      border:1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.6s ease 0.5s both;
     }
-    .glassInner{padding:18px}
-    .glassTitle{font-weight:950;font-size:20px;margin-bottom:12px}
 
-    .contractRow{
-      display:flex;gap:12px;align-items:center;justify-content:space-between;
-      padding:14px;
-      border-radius:16px;
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
+    .glassInner {
+      padding: 24px;
     }
-    .mono{
+
+    .glassTitle {
+      font-weight: 950;
+      font-size: 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contractRow {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      transition: var(--transition);
+      flex-wrap: wrap;
+    }
+
+    .contractRow:hover {
+      border-color: rgba(255,196,92,.3);
+      background: rgba(255,255,255,.06);
+    }
+
+    .mono {
       font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size:13px;
+      font-size: 13px;
       color: rgba(255,255,255,.86);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-      max-width: calc(100% - 120px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      min-width: 0;
     }
-    .miniBtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .miniBtns .btn{height:44px;border-radius:14px}
 
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:14px;
+    .miniBtns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
     }
-    .card{
-      padding:16px;
-      border-radius:18px;
+
+    .miniBtns .btn {
+      height: 44px;
+      border-radius: 14px;
+      font-size: 14px;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 18px;
       background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+      transition: var(--transition);
     }
-    .card h3{margin:0 0 8px;font-size:15px}
-    .card p{margin:0;color:rgba(255,255,255,.70);font-weight:750;line-height:1.5}
 
-    /* Bonding */
-    .barWrap{
-      margin-top:18px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.82);
-      font-weight:900;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,196,92,.25);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 20px 40px rgba(0,0,0,.3);
     }
-    .progressOuter{
-      margin-top:10px;
-      height:12px;border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,196,92,.18);
-      overflow:hidden;
-    }
-    .progressFill{
-      height:100%;
-      width: 0%;
-      background: linear-gradient(90deg, rgba(255,196,92,.95), rgba(255,154,31,.95));
-      box-shadow: 0 0 18px rgba(255,168,50,.22);
-    }
-    .bondMeta{
-      margin-top:10px;
-      display:flex;gap:14px;flex-wrap:wrap;
-      color: rgba(255,255,255,.72);
-      font-weight:800;
-      font-size:13px;
-    }
-    .fineprint{
-      margin-top:10px;
-      color: rgba(255,255,255,.55);
-      font-weight:750;
-      font-size:13px;
-      line-height:1.5;
-    }
-    .tiny{font-size:12px;color:rgba(255,255,255,.55);font-weight:800}
 
-    /* Live chart embed */
-    .chartWrap{
-      margin-top:14px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.35);
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--goldA);
     }
-    .chartWrap iframe{
-      width:100%;
-      height:420px;
-      border:0;
-      display:block;
+
+    .card p {
+      margin: 0;
+      color: rgba(255,255,255,.70);
+      font-weight: 750;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* Burn Section */
+    .burning-section {
+      text-align: center;
+      padding: 40px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      margin: 20px 0;
+      border: 1px solid #ff9900;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .burning-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom, rgba(255,69,0,0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .burning-section h2 {
+      color: #ff9900;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fireplace-effect {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at bottom, #4a1500 0%, #1a0f00 70%) !important;
+      border: 2px solid #ff4500 !important;
+      box-shadow: inset 0 0 40px #ff4500, 0 0 30px rgba(255,69,0,0.3);
+      animation: flicker 3s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.95; }
+    }
+
+    .fireplace-effect::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #ff4500, #ff9900, transparent);
+      opacity: 0.6;
+      filter: blur(15px);
+      animation: flameDance 1.5s infinite alternate;
+    }
+
+    @keyframes flameDance {
+      0% { transform: translateY(10px) scaleX(1); opacity: 0.4; }
+      100% { transform: translateY(-5px) scaleX(1.1); opacity: 0.8; }
+    }
+
+    /* Ecosystem Section */
+    .ecosystem-section {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    .ecosystem-section p {
+      font-size: 12px;
+      color: #f3ba2f;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .logos-container {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .partner-logo {
+      display: inline-block;
+      filter: grayscale(100%);
+      transition: var(--transition);
+      opacity: 0.7;
+    }
+
+    .partner-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.1);
     }
 
     /* Sections */
-    section{padding:18px 0}
-    .secTitle{
-      margin:34px 0 12px;
-      font-size:20px;
-      font-weight:950;
-    }
-    .grid3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
+    section {
+      padding: 20px 0;
     }
 
-    footer{
-      margin-top:40px;
-      padding:40px 0 60px;
-      border-top:1px solid rgba(255,255,255,.10);
+    .secTitle {
+      margin: 40px 0 20px;
+      font-size: 24px;
+      font-weight: 950;
+      position: relative;
+      display: inline-block;
+    }
+
+    .secTitle::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--goldA), var(--goldC));
+      border-radius: 2px;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* Chart */
+    .chartWrap {
+      margin-top: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .chartWrap iframe {
+      width: 100%;
+      height: 700px;
+      border: 0;
+      display: block;
+    }
+
+    /* Social Icons */
+    .social-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: var(--transition);
+      color: white;
+      font-size: 22px;
+      border: 1px solid rgba(255,255,255,.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,.1));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .social-icon:hover::before {
+      opacity: 1;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px) scale(1.1);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255,196,92,.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+
+    .fa-telegram-plane { color: #0088cc; }
+    .fa-tiktok { color: #ffffff; }
+    .fa-x-twitter { color: #ffffff; }
+    .fa-instagram { color: #E1306C; }
+    .fa-envelope { color: #D44638; }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding: 40px 20px 60px;
+      border-top: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.45);
       color: rgba(255,255,255,.62);
+      text-align: center;
     }
 
-    @media (max-width: 980px){
-      .navlinks{display:none}
-      .grid2{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .chartWrap iframe{height:520px}
-      .mono{max-width: calc(100% - 110px)}
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
-  
-    .marketCard{grid-column:1 / -1;}
-    .marketGrid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:10px;
-    }
-    .pill{
-      padding:12px 12px;
-      border-radius:16px;
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.90);
-      font-weight:800;
-      line-height:1.35;
-    }
-    .pill b{display:inline-block;margin-bottom:4px;color:rgba(255,255,255,.70);font-weight:950;}
 
-  
-    .liquidityNote{
-      margin-top:12px;
-      padding:12px 14px;
-      border-radius:16px;
-      background: rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.82);
-      font-weight:800;
-      line-height:1.45;
-      font-size:13px;
+    .footer-content p {
+      margin-bottom: 16px;
     }
-    .liquidityNote b{color:rgba(255,255,255,.92);font-weight:950}
 
+    /* Mobile Responsive */
+    @media (max-width: 980px) {
+      .navlinks { 
+        display: none; 
+      }
+      
+      .brand {
+        cursor: pointer;
+      }
+      
+      .brand .icon::after {
+        opacity: 1;
+        background: rgba(0,0,0,.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+      }
+      
+      .brand .icon img {
+        opacity: 0.3;
+      }
+      
+      .mobile-nav {
+        display: flex;
+      }
+      
+      .grid2 { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .grid3 { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .chartWrap iframe { 
+        height: 500px; 
+      }
+      
+      .contractRow {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .mono {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      
+      .burning-section { 
+        padding: 24px; 
+      }
+      
+      .burning-section h2 { 
+        font-size: 1.5rem; 
+      }
+      
+      .actions .btn {
+        padding: 0 14px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 { 
+        font-size: 32px; 
+      }
+      
+      .line2 { 
+        font-size: 18px; 
+      }
+      
+      .glassInner { 
+        padding: 16px; 
+      }
+      
+      .btn { 
+        padding: 0 16px; 
+        height: 44px; 
+        font-size: 14px; 
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .heroBtns {
+        flex-direction: column;
+      }
+      
+      .miniBtns .btn {
+        flex: 1;
+        min-width: calc(50% - 5px);
+      }
+      
+      .mobile-nav a {
+        font-size: 20px;
+        padding: 12px 24px;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .mt-20 { margin-top: 20px; }
+    .mb-20 { margin-bottom: 20px; }
+    .hidden { display: none; }
+
+    /* Loading Animation */
+    .skeleton {
+      background: linear-gradient(90deg, rgba(255,255,255,.05) 25%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.05) 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Overlay when menu is open */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 54;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .overlay.active {
+      display: block;
+      opacity: 1;
+    }
   </style>
 </head>
 
 <body>
-  <div class="bg"></div>
+  <div class="bg" aria-hidden="true"></div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </div>
+    <a href="#chart" onclick="toggleMenu()">
+      <i class="fas fa-chart-area" aria-hidden="true"></i> Live Chart
+    </a>
+    <a href="#tokenomics" onclick="toggleMenu()">
+      <i class="fas fa-coins" aria-hidden="true"></i> Tokenomics
+    </a>
+    <a href="#how" onclick="toggleMenu()">
+      <i class="fas fa-shopping-cart" aria-hidden="true"></i> How to Buy
+    </a>
+    <a href="#faq" onclick="toggleMenu()">
+      <i class="fas fa-question-circle" aria-hidden="true"></i> FAQ
+    </a>
+    <a href="https://drive.google.com/file/d/1RKybDpHnIAHZpmkp4OFj1PBHKE_LvtFF/view?usp=drive_link" target="_blank" rel="noopener noreferrer" onclick="toggleMenu()">
+      <i class="fas fa-file-alt" aria-hidden="true"></i> Whitepaper
+    </a>
+  </nav>
 
   <header class="top">
     <div class="container">
       <div class="nav">
-        <div class="brand">
-          <div class="icon" style="width: 80px; height: 80px;">
-            <img src="logo.png" alt="Betsminerx logo" style="width: 81px;" height="auto"/>
+        <!-- Logo tıklanabilir mobil menü -->
+        <div class="brand" onclick="toggleMenu()" role="button" aria-label="Open menu" aria-expanded="false" id="menuButton">
+          <div class="icon">
+            <img src="logo.png" alt="Betsminerx Logo" width="50" height="50" loading="eager"/>
           </div>
           <div class="title">
             <div style="display:flex;gap:10px;align-items:center">
@@ -462,27 +994,27 @@
           </div>
         </div>
 
-        <nav class="navlinks">
+        <!-- Desktop Navigation -->
+        <nav class="navlinks" aria-label="Main Navigation">
           <a href="#chart">Live Chart</a>
           <a href="#tokenomics">Tokenomics</a>
           <a href="#how">How to Buy</a>
           <a href="#faq">FAQ</a>
-          <a href="https://drive.google.com/file/d/1RKybDpHnIAHZpmkp4OFj1PBHKE_LvtFF/view?usp=drive_link" target="_blank" class="nav-link" style="color: white; text-decoration: none; margin-left: 20px; cursor: pointer;">Whitepaper</a>
+          <a href="https://drive.google.com/file/d/1RKybDpHnIAHZpmkp4OFj1PBHKE_LvtFF/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Whitepaper</a>
         </nav>
 
         <div class="actions">
-          <a class="btn outlineGold" href="#" target="_blank" rel="noopener">DApp Soon</a>
-          <a class="btn gold" href="https://pancakeswap.finance/swap?outputCurrency=0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" data-buy-link target="_blank" rel="noopener">Buy BTX</a>
+          <a class="btn outlineGold" href="#" aria-disabled="true">DApp Soon</a>
+          <a class="btn gold" href="https://pancakeswap.finance/swap?outputCurrency=0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener noreferrer">Buy BTX</a>
         </div>
       </div>
     </div>
 
-    <div class="ticker">
+    <div class="ticker" role="marquee" aria-label="Announcement ticker">
       <div class="container">
         <div class="tickerInner">
           <span>
             BUILDING THE FUTURE OF DECENTRALIZED UTILITY • SECURE INFRASTRUCTURE ON BNB CHAIN • TRANSPARENT GOVERNANCE • COMMUNITY-POWERED GROWTH • VERIFIED CONTRACT ADDRESS • JOIN THE FOUNDATION
-            
           </span>
         </div>
       </div>
@@ -490,218 +1022,374 @@
   </header>
 
   <main class="container">
-    <!-- HERO -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="main-heading">
       <div class="chip">
-        <div class="tick">↗</div>
-        <div>BTX • BNB Chain • Launch Day:06.02.2026</div>
+        <div class="tick" aria-hidden="true">↗</div>
+        <div>BTX • BNB Chain • Launch Day: 06.02.2026</div>
       </div>
 
-      <h1>Betsminerx</h1>
+      <h1 id="main-heading">Betsminerx</h1>
       <div class="line2 goldText">Architecting the Future. Mining the Opportunity</div>
 
       <p class="lead">
         BetsMinerX is not just a digital asset;<br/>
-         İt is the cornerstone of a new ecosystem being built from the ground up. We are the builders of a decentralized future, architecting seamless experiences where community power meets technical precision.
-By leveraging the robust infrastructure of the Binance Smart Chain, we are laying the foundation for an expansive, scalable, and transparent network. We aren't just here for today; we are here to construct a sustainable journey. Every burn, every milestone, and every step forward is calculated to reward those who believe in our collective vision.
-The blueprint is ready, the foundation is set, and the community is growing. We are building the next generation of decentralized utility—brick by brick, block by block.
-The ecosystem is expanding. The future is being constructed.
-Are you ready to be a part of the foundation?
+        It is the cornerstone of a new ecosystem being built from the ground up. We are the builders of a decentralized future, architecting seamless experiences where community power meets technical precision.
+        By leveraging the robust infrastructure of the Binance Smart Chain, we are laying the foundation for an expansive, scalable, and transparent network. We aren't just here for today; we are here to construct a sustainable journey. Every burn, every milestone, and every step forward is calculated to reward those who believe in our collective vision.
+        The blueprint is ready, the foundation is set, and the community is growing. We are building the next generation of decentralized utility—brick by brick, block by block.
+        The ecosystem is expanding. The future is being constructed.
+        Are you ready to be a part of the foundation?
       </p>
 
       <div class="heroBtns">
-        <a class="btn gold" href="https://pancakeswap.finance/swap?outputCurrency=0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" data-buy-link target="_blank" rel="noopener">Buy on PancakeSwap</a>
-        <a class="btn outlineGold" href="https://www.dexview.com/bsc/0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank">DexView</a>
+        <a class="btn gold" href="https://pancakeswap.finance/swap?outputCurrency=0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-rocket" aria-hidden="true"></i> Buy on PancakeSwap
+        </a>
+        <a class="btn outlineGold" href="https://www.dexview.com/bsc/0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-chart-line" aria-hidden="true"></i> DexView
+        </a>
       </div>
 
-      <!-- CONTRACT + LIVE STATS -->
+      <!-- Contract & Stats -->
       <div class="glass">
         <div class="glassInner">
-          <div class="glassTitle">Contract <span style="font-size:14px;color:rgba(255,255,255,.60);font-weight:900;">(BNB)</span></div>
+          <div class="glassTitle">
+            Contract <span style="font-size:14px;color:rgba(255,255,255,.60);font-weight:900;">(BNB)</span>
+          </div>
 
           <div class="contractRow">
-            <div class="mono" id="contract">0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60</div>
-            <button class="btn gold" id="copyBtn" type="button" onclick="handleCopy()">COPY</button>
+            <div class="mono" id="contract" aria-label="Contract Address">0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60</div>
+            <button class="btn gold" id="copyBtn" type="button" onclick="handleCopy()" aria-label="Copy contract address">
+              <i class="fas fa-copy" aria-hidden="true"></i> COPY
+            </button>
           </div>
 
           <div class="miniBtns">
-            
-            <a class="btn outlineGold" href="javascript:void(0)" style="opacity: 0.5; cursor: default;">Coming Soon</a>
-            <a class="btn outlineGold" href="https://dexscreener.com/bsc/0x4249c5ab3baf078376d4a912d1810549fd012de4" target="_blank" rel="noopener">DexScreener</a>
-            <a class="btn outlineGold" href="https://bscscan.com/token/0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener">BscScan</a>
+            <a class="btn outlineGold" href="#" aria-disabled="true" style="opacity:0.5;cursor:not-allowed;">
+              <i class="fas fa-clock" aria-hidden="true"></i> Coming Soon
+            </a>
+            <a class="btn outlineGold" href="https://dexscreener.com/bsc/0x4249c5ab3baf078376d4a912d1810549fd012de4" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-search-dollar" aria-hidden="true"></i> DexScreener
+            </a>
+            <a class="btn outlineGold" href="https://bscscan.com/token/0xbe9285736cbbf71bdefee8ae17c2ac8cd6bb8b60" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-cube" aria-hidden="true"></i> BscScan
+            </a>
           </div>
 
-<div class="ecosystem-section" style="margin-top: 25px; text-align: left;">
-    <p style="font-size: 12px; color: #f3ba2f; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Seamlessly Swap & Bridge via</p>
-    <div class="logos-container" style="display: flex; gap: 20px; align-items: center;">
-        <span style="display: inline-block; filter: grayscale(100%); transition: 0.3s;" 
-      onmouseover="this.style.filter='grayscale(0%)';" 
-      onmouseout="this.style.filter='grayscale(100%)';">
-    <img src="pancake.png" 
-         alt="PancakeSwap" 
-         style="width: 25px; height: 25px; vertical-align: middle;">
-</span>
-</span>
-        <span style="font-weight: bold; font-family: sans-serif; color: #fff; font-size: 18px; filter: grayscale(100%); transition: 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.color='#f3ba2f'" onmouseout="this.style.filter='grayscale(100%)'; this.style.color='#fff'">LI.FI</span>
-    </div>
-</div>
-
-</div>
+          <div class="ecosystem-section">
+            <p>Seamlessly Swap & Bridge via</p>
+            <div class="logos-container">
+              <span class="partner-logo" title="PancakeSwap">
+                <img src="pancake.png" alt="PancakeSwap" width="25" height="25" loading="lazy">
+              </span>
+              <span class="partner-logo" title="LI.FI" style="font-weight:bold;font-family:sans-serif;color:#fff;font-size:18px;">
+                LI.FI
+              </span>
+            </div>
+          </div>
 
           <div class="grid2">
-            
-            <div class="burning-section" style="text-align: center; padding: 40px; background: rgba(0,0,0,0.3); border-radius: 20px; margin: 20px 0; border: 1px solid #ff9900;">
-    <h2 style="color: #ff9900; font-size: 2rem; margin-bottom: 20px; text-transform: uppercase;">🔥 BTX SUPPLY BURN 🔥</h2>
-    
-    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-        <div class="pill" style="background: rgba(255,153,0,0.1); border: 1px solid #ff9900;">
-            <p style="color: #aaa; margin: 0;">TOTAL SUPPLY</p>
-            <h3 style="color: #fff; margin: 10px 0;">50,000,000,000,000</h3>
-        </div>
-        
-        <div class="pill fireplace-effect" style="border: 2px solid #ff4500;">
-            <p style="color: #ffffff; margin: 0; font-weight: bold;">BURNED SO FAR</p>
-            <h3 style="color: #ffffff; margin: 10px 0; font-size: 1.5rem;">1.871.011.296.000</h3>
-        </div>
-    </div>
-</div>
-    </div>
-</div>
-</div>
-</div>
-<div class="card">
-              <h3></h3>
-              <div class="card community-message" style="text-align: center; padding: 30px; margin-top: 20px; background: rgba(255, 69, 0, 0.05); border: 1px solid #ff4500; border-radius: 15px;">
-    <h3 style="color: #ff9900; font-size: 1.8rem; margin-bottom: 15px;">🔥 THE POWER OF OUR ECOSYSTEM 🔥</h3>
-    <p style="color: #fff; font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-        BetsMinerX is a next-generation tokenomics experiment focused on sustainable mining and deflationary growth. We are building a decentralized ecosystem driven by innovation, transparency, and community power. <br>
-        <br>
-        <span style="color: #ff4500; font-weight: bold; font-size: 1.2rem;">"Strength in numbers, burning to thrive."</span>
-    </p>
-</div>
+            <div class="burning-section">
+              <h2><i class="fas fa-fire" aria-hidden="true"></i> BTX SUPPLY BURN <i class="fas fa-fire" aria-hidden="true"></i></h2>
+              <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+                <div class="card" style="background:rgba(255,153,0,0.1);border:1px solid #ff9900;">
+                  <p style="color:#aaa;margin:0;font-size:12px;">TOTAL SUPPLY</p>
+                  <h3 style="color:#fff;margin:10px 0;font-size:1.3rem;">50,000,000,000,000</h3>
+                </div>
+                <div class="card fireplace-effect">
+                  <p style="color:#ffffff;margin:0;font-weight:bold;font-size:12px;">BURNED SO FAR</p>
+                  <h3 style="color:#ffffff;margin:10px 0;font-size:1.5rem;">1.871.011.296.000</h3>
+                </div>
+              </div>
+            </div>
           </div>
-      <!-- LIVE CHART EMBED -->
-      <div class="secTitle" id="chart">Live Chart</div>
+
+          <div class="card community-message" style="text-align:center;padding:30px;margin-top:20px;background:rgba(255,69,0,0.05);border:1px solid #ff4500;">
+            <h3 style="color:#ff9900;font-size:1.6rem;margin-bottom:15px;">
+              <i class="fas fa-fire-alt" aria-hidden="true"></i> THE POWER OF OUR ECOSYSTEM <i class="fas fa-fire-alt" aria-hidden="true"></i>
+            </h3>
+            <p style="color:#fff;font-size:1rem;line-height:1.7;max-width:800px;margin:0 auto;">
+              BetsMinerX is a next-generation tokenomics experiment focused on sustainable mining and deflationary growth. We are building a decentralized ecosystem driven by innovation, transparency, and community power.<br><br>
+              <span style="color:#ff4500;font-weight:bold;font-size:1.1rem;">"Strength in numbers, burning to thrive."</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Chart -->
+      <h2 class="secTitle" id="chart">
+        <i class="fas fa-chart-area" aria-hidden="true"></i> Live Chart
+      </h2>
       <div class="glass">
         <div class="glassInner">
           <div class="chartWrap">
             <iframe
-              src="https://dexscreener.com/bsc/0x4249c5ab3baf078376d4a912d1810549fd012de4?embed=1&theme=dark" style="width:100%;height:700px;border:0;border-radius:12px;" loading="lazy"
+              src="https://dexscreener.com/bsc/0x4249c5ab3baf078376d4a912d1810549fd012de4?embed=1&theme=dark"
+              title="BTX Live Price Chart"
               loading="lazy"
               referrerpolicy="no-referrer"
               sandbox="allow-scripts allow-same-origin allow-popups"
-              style="width:100%;height:700px;border:0;border-radius:12px;"
-          ></iframe>
-
+              aria-label="Live price chart from DexScreener">
+            </iframe>
           </div>
-          <div class="tiny" style="margin-top:10px;">
-            If the chart is not visible yet, DexScreener may still be indexing the token.
-          </div>
+          <p class="tiny" style="margin-top:12px;color:rgba(255,255,255,.55);font-size:12px;">
+            <i class="fas fa-info-circle" aria-hidden="true"></i> If the chart is not visible yet, DexScreener may still be indexing the token.
+          </p>
         </div>
       </div>
 
-      <!-- MORE MEMECOIN INFO SECTIONS -->
-      <div class="secTitle">About</div>
+      <!-- About -->
+      <h2 class="secTitle">
+        <i class="fas fa-info-circle" aria-hidden="true"></i> About
+      </h2>
       <div class="grid3">
-        <div class="card"><h3>Community First</h3><p>Our ecosystem is governed by collective participation. We prioritize decentralization, ensuring that our roadmap and future developments are driven by community consensus rather than centralized authority.</p></div>
-        <div class="card"><h3>Strategic Security & Integrity</h3><p>We value long-term stability over short-term hype. Our contract includes a dynamic tax mechanism, engineered to act as a shield against bot activity and market manipulation. We maintain full transparency, keeping our code verified and accessible for audit.</p></div>
-        <div class="card"><h3>Scalable Infrastructure</h3><p>Built on the secure and efficient architecture of the Binance Smart Chain, our project is designed for seamless scalability. We are fostering a stable ecosystem that supports sustainable growth while maintaining fast, low-cost transaction capabilities for all users.</p></div>
+        <article class="card">
+          <h3><i class="fas fa-users" aria-hidden="true"></i> Community First</h3>
+          <p>Our ecosystem is governed by collective participation. We prioritize decentralization, ensuring that our roadmap and future developments are driven by community consensus rather than centralized authority.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> Strategic Security & Integrity</h3>
+          <p>We value long-term stability over short-term hype. Our contract includes a dynamic tax mechanism, engineered to act as a shield against bot activity and market manipulation. We maintain full transparency, keeping our code verified and accessible for audit.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-expand-arrows-alt" aria-hidden="true"></i> Scalable Infrastructure</h3>
+          <p>Built on the secure and efficient architecture of the Binance Smart Chain, our project is designed for seamless scalability. We are fostering a stable ecosystem that supports sustainable growth while maintaining fast, low-cost transaction capabilities for all users.</p>
+        </article>
       </div>
 
-      <div class="secTitle" id="tokenomics">Tokenomics</div>
+      <!-- Tokenomics -->
+      <h2 class="secTitle" id="tokenomics">
+        <i class="fas fa-coins" aria-hidden="true"></i> Tokenomics
+      </h2>
       <div class="grid3">
-        <div class="card"><h3>Ticker</h3><p><b>BTX</b></p></div>
-        <div class="card"><h3>Chain</h3><p><b>BNB Chain (BEP-20) </b></p></div>
-        <div class="card"><h3>Distribution & Fair Supply</h3><p>Designed for long-term scarcity, we utilize a controlled supply model. 100% of liquidity is locked, and ownership is renounced to ensure a trustless, decentralized environment for all holders.</p></div>
+        <article class="card">
+          <h3><i class="fas fa-tag" aria-hidden="true"></i> Ticker</h3>
+          <p><strong style="color:var(--goldA);font-size:1.2rem;">BTX</strong></p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-link" aria-hidden="true"></i> Chain</h3>
+          <p><strong style="color:var(--goldA);">BNB Chain (BEP-20)</strong></p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-balance-scale" aria-hidden="true"></i> Distribution & Fair Supply</h3>
+          <p>Designed for long-term scarcity, we utilize a controlled supply model. 100% of liquidity is locked, and ownership is renounced to ensure a trustless, decentralized environment for all holders.</p>
+        </article>
       </div>
 
-      <div class="secTitle">Roadmap</div>
+      <!-- Roadmap -->
+      <h2 class="secTitle">
+        <i class="fas fa-road" aria-hidden="true"></i> Roadmap
+      </h2>
       <div class="grid3">
-        <div class="card"><h3>Ecosystem Foundation</h3><p>Strategic launch, liquidity locking, and initial community building. Establishing the core infrastructure, finalizing smart contract security audits, and initiating the primary growth campaigns to secure our foothold on the BNB Chain.</p></div>
-        <div class="card"><h3>Network Expansion</h3><p>Scaling the ecosystem through strategic technical partnerships and community-driven initiatives. Implementing advanced governance tools, expanding our decentralized footprint, and integrating core utilities that provide long-term value to our holders.</p></div>
-        <div class="card"><h3>Sustainable Growth</h3><p>Focus on ecosystem maturity and long-term innovation. Introduction of advanced decentralized utility modules, cross-chain exploration, and scaling the project to reach broader global audiences while maintaining a high standard of network integrity.</p></div>
+        <article class="card">
+          <h3><i class="fas fa-rocket" aria-hidden="true"></i> Ecosystem Foundation</h3>
+          <p>Strategic launch, liquidity locking, and initial community building. Establishing the core infrastructure, finalizing smart contract security audits, and initiating the primary growth campaigns to secure our foothold on the BNB Chain.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-network-wired" aria-hidden="true"></i> Network Expansion</h3>
+          <p>Scaling the ecosystem through strategic technical partnerships and community-driven initiatives. Implementing advanced governance tools, expanding our decentralized footprint, and integrating core utilities that provide long-term value to our holders.</p>
+        </article>
+        <article class="card">
+          <h3><i class="fas fa-leaf" aria-hidden="true"></i> Sustainable Growth</h3>
+          <p>Focus on ecosystem maturity and long-term innovation. Introduction of advanced decentralized utility modules, cross-chain exploration, and scaling the project to reach broader global audiences while maintaining a high standard of network integrity.</p>
+        </article>
       </div>
 
-      <div class="secTitle" id="how">How to Buy</div>
+      <!-- How to Buy -->
+      <h2 class="secTitle" id="how">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i> How to Buy
+      </h2>
       <div class="grid3">
-        <div class="card"><h3>1) Set Up Your Wallet</h3><p>Download and install a secure, decentralized wallet such as MetaMask or Trust Wallet. Ensure you have added the BNB Smart Chain network to your wallet configuration to interact with the ecosystem.</p></div>
-        <div class="card"><h3>2) Acquire BNB</h3><p>Purchase BNB (Binance Coin) from a reputable exchange and transfer it to your decentralized wallet address. BNB is the native currency required to engage with our ecosystem and acquire BTX tokens.</p></div>
-        <div class="card"><h3>3) Swap for BTX</h3><p>Access a decentralized exchange like PancakeSwap, connect your wallet, and enter our verified contract address to swap your BNB for BTX. Always double-check the contract address to ensure you are transacting with the official token.</p></div>
+        <article class="card">
+          <h3><span style="color:var(--goldA);font-size:1.5rem;margin-right:8px;">1</span> Set Up Your Wallet</h3>
+          <p>Download and install a secure, decentralized wallet such as MetaMask or Trust Wallet. Ensure you have added the BNB Smart Chain network to your wallet configuration to interact with the ecosystem.</p>
+        </article>
+        <article class="card">
+          <h3><span style="color:var(--goldA);font-size:1.5rem;margin-right:8px;">2</span> Acquire BNB</h3>
+          <p>Purchase BNB (Binance Coin) from a reputable exchange and transfer it to your decentralized wallet address. BNB is the native currency required to engage with our ecosystem and acquire BTX tokens.</p>
+        </article>
+        <article class="card">
+          <h3><span style="color:var(--goldA);font-size:1.5rem;margin-right:8px;">3</span> Swap for BTX</h3>
+          <p>Access a decentralized exchange like PancakeSwap, connect your wallet, and enter our verified contract address to swap your BNB for BTX. Always double-check the contract address to ensure you are transacting with the official token.</p>
+        </article>
       </div>
 
-      <div class="secTitle" id="faq">FAQ</div>
+      <!-- FAQ -->
+      <h2 class="secTitle" id="faq">
+        <i class="fas fa-question-circle" aria-hidden="true"></i> FAQ
+      </h2>
       <div class="grid3">
-        <div class="card"><h3>Is this financial advice?</h3><p>No. All information provided is for educational and entertainment purposes only. Crypto assets are subject to high market volatility. We strongly encourage all participants to conduct their own research (DYOR) before engaging with any digital asset.</p></div>
-        <div class="card"><h3>Can I lose money?</h3><p>Yes. Engaging with decentralized finance and digital assets involves inherent risks, including the potential for total loss of investment. Market conditions change rapidly, and users should only participate with capital they are prepared to lose.</p></div>
-        <div class="card"><h3>Where is the official contract?</h3><p>The only official contract address is the one explicitly published on this website and verified on BscScan. Always verify the address before transacting to ensure you are interacting with our authenticated smart contract.</p></div>
-        <div class="card"><h3>What makes this project different?</h3><p>Unlike speculative assets, we prioritize a long-term roadmap centered on sustainable development. We are builders first—focused on creating robust infrastructure, transparency, and value for our community through consistent technical innovation on the BNB Chain.</p></div>
-        <div class="card"><h3>How do you handle community governance?</h3><p>We believe in the power of collective decision-making. Our roadmap is designed to evolve based on community feedback. We maintain open channels for discussion and ensure that all major developmental milestones align with the collective interests of our holders.</p></div>
-        <div class="card"><h3>Will there be future updates to the ecosystem?</h3><p>Absolutely. We are continuously working on optimizing our smart contracts and expanding our utility modules. As we grow, our focus remains on scaling our infrastructure to offer more value to the ecosystem while maintaining the highest security standards.</p></div>
+        <article class="card">
+          <h3>Is this financial advice?</h3>
+          <p>No. All information provided is for educational and entertainment purposes only. Crypto assets are subject to high market volatility. We strongly encourage all participants to conduct their own research (DYOR) before engaging with any digital asset.</p>
+        </article>
+        <article class="card">
+          <h3>Can I lose money?</h3>
+          <p>Yes. Engaging with decentralized finance and digital assets involves inherent risks, including the potential for total loss of investment. Market conditions change rapidly, and users should only participate with capital they are prepared to lose.</p>
+        </article>
+        <article class="card">
+          <h3>Where is the official contract?</h3>
+          <p>The only official contract address is the one explicitly published on this website and verified on BscScan. Always verify the address before transacting to ensure you are interacting with our authenticated smart contract.</p>
+        </article>
+        <article class="card">
+          <h3>What makes this project different?</h3>
+          <p>Unlike speculative assets, we prioritize a long-term roadmap centered on sustainable development. We are builders first—focused on creating robust infrastructure, transparency, and value for our community through consistent technical innovation on the BNB Chain.</p>
+        </article>
+        <article class="card">
+          <h3>How do you handle community governance?</h3>
+          <p>We believe in the power of collective decision-making. Our roadmap is designed to evolve based on community feedback. We maintain open channels for discussion and ensure that all major developmental milestones align with the collective interests of our holders.</p>
+        </article>
+        <article class="card">
+          <h3>Will there be future updates to the ecosystem?</h3>
+          <p>Absolutely. We are continuously working on optimizing our smart contracts and expanding our utility modules. As we grow, our focus remains on scaling our infrastructure to offer more value to the ecosystem while maintaining the highest security standards.</p>
+        </article>
       </div>
-<!-- Official Channels -->
-      <div style="display: flex; justify-content: center; margin-top: 20px;">
-    <a class="social-icon" href="https://t.me/BTXOfficialx" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-    <a class="social-icon" href="https://www.tiktok.com/@betsminerx?_r=1&_t=ZS-94HOFUjWmpT" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a class="social-icon" href="https://x.com/BetsmInerx" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a class="social-icon" href="https://www.instagram.com/betsminerx/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a class="social-icon" href="mailto:info@betsminerx.com"><i class="fas fa-envelope"></i></a>
-</div>
 
-    </div>
-</div>
-
+      <!-- Social Links -->
+      <div class="social-container">
+        <a class="social-icon" href="https://t.me/BTXOfficialx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram">
+          <i class="fab fa-telegram-plane" aria-hidden="true"></i>
+        </a>
+        <a class="social-icon" href="https://www.tiktok.com/@betsminerx" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok">
+          <i class="fab fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a class="social-icon" href="https://x.com/BetsmInerx" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (Twitter)">
+          <i class="fab fa-x-twitter" aria-hidden="true"></i>
+        </a>
+        <a class="social-icon" href="https://www.instagram.com/betsminerx/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a class="social-icon" href="mailto:info@betsminerx.com" aria-label="Contact us via Email">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer style="margin-top: 40px; padding: 30px 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 13px;">
-    <div style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
-        <p style="margin-bottom: 10px;">
-            <strong>Risk Disclosure:</strong> Engaging with crypto assets, decentralized protocols, and blockchain-based infrastructures involves a high degree of inherent risk. The crypto asset market is characterized by extreme price volatility, rapid technological shifts, and evolving regulatory landscapes. By accessing this platform and utilizing its technological components, you expressly acknowledge that all interactions are performed at your own discretion and based on your own independent evaluation.
-​This interface serves exclusively as a technological gateway and does not provide financial, legal, or investment advice. Crypto assets are complex digital instruments, and users are expected to conduct their own thorough research and exercise personal due diligence before participating in any decentralized ecosystem. You are solely responsible for the security of your digital interactions and for assessing the technical risks associated with blockchain-integrated systems. This platform shall not be held liable for any decisions made based on the information provided herein.
-        </p>
-        <p>&copy; 2026 Betsminerx. All rights reserved.</p>
+  <footer>
+    <div class="footer-content">
+      <p>
+        <strong>Risk Disclosure:</strong> Engaging with crypto assets, decentralized protocols, and blockchain-based infrastructures involves a high degree of inherent risk. The crypto asset market is characterized by extreme price volatility, rapid technological shifts, and evolving regulatory landscapes. By accessing this platform and utilizing its technological components, you expressly acknowledge that all interactions are performed at your own discretion and based on your own independent evaluation.​This interface serves exclusively as a technological gateway and does not provide financial, legal, or investment advice. Crypto assets are complex digital instruments, and users are expected to conduct their own thorough research and exercise personal due diligence before participating in any decentralized ecosystem. You are solely responsible for the security of your digital interactions and for assessing the technical risks associated with blockchain-integrated systems. This platform shall not be held liable for any decisions made based on the information provided herein.
+      </p>
+      <p>&copy; 2026 Betsminerx. All rights reserved.</p>
     </div>
- </footer>
+  </footer>
 
-  
+  <!-- Scripts -->
+  <script src="/config.js" defer></script>
+  <script src="/app.js" defer></script>
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      const overlay = document.getElementById('overlay');
+      const menuButton = document.getElementById('menuButton');
+      const isOpen = mobileNav.classList.contains('active');
+      
+      if (isOpen) {
+        mobileNav.classList.remove('active');
+        overlay.classList.remove('active');
+        menuButton.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        mobileNav.classList.add('active');
+        overlay.classList.add('active');
+        menuButton.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
+    }
 
+    // Copy function
+    function handleCopy() {
+      const contractText = document.getElementById('contract').innerText;
+      const btn = document.getElementById('copyBtn');
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(contractText).then(() => {
+          showCopiedState(btn);
+        }).catch(() => {
+          fallbackCopy(contractText, btn);
+        });
+      } else {
+        fallbackCopy(contractText, btn);
+      }
+    }
 
+    function fallbackCopy(text, btn) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-9999px';
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      
+      try {
+        document.execCommand('copy');
+        showCopiedState(btn);
+      } catch (err) {
+        console.error('Copy failed:', err);
+      }
+      
+      document.body.removeChild(tempInput);
+    }
 
+    function showCopiedState(btn) {
+      const originalContent = btn.innerHTML;
+      btn.style.background = '#22c55e';
+      btn.style.color = '#fff';
+      btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> COPIED!';
+      
+      setTimeout(() => {
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.innerHTML = originalContent;
+      }, 2000);
+    }
 
-  <script defer src="/config.js"></script>
-  <script defer src="/app.js"></script>
-<script>
-function handleCopy() {
-    // 1. coppy
-    const contractText = document.getElementById('contract').innerText;
-    const tempInput = document.createElement('input');
-    tempInput.value = contractText;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
 
-// 2. change color
-const btn = document.getElementById('copyBtn');
-btn.style.backgroundColor = "background clor green"; // Yeşil renk
-btn.style.color = 'white';             // Yazı rengi
-btn.innerHTML = 'COPIED!';
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-// 3. 2 second back
-setTimeout(() => {
-    btn.style.backgroundColor = '';    // Varsayılan renge (gold) dön
-    btn.style.color = '';              // Varsayılan yazı rengine dön
-    btn.innerHTML = 'COPY';
-}, 2000);
-}
-</script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
 
+    document.querySelectorAll('.card').forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
 
-
+    // Close menu on resize if open
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) {
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNav.classList.contains('active')) {
+          toggleMenu();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
